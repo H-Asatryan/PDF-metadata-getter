@@ -1,2 +1,7 @@
-# PDF-metadata-getter
-Shows how to batch extract some PDF metadata (e.g., document titles).
+# Readme
+
+This small project shows Python solution for PDF tasks like
+
+1. Batch metadata extraction (e.g., document titles, page count etc).
+2. Modifying, creating, re-arranging and deleting pages
+3. Joining and splitting PDF documents
