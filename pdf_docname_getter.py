@@ -22,11 +22,14 @@ for root, dirs, files in os.walk(subfolder_path):
                 # Extract the title from the metadata
                 title = pdf_document.metadata.get('title', 'Unknown Title')
                 document_titles.append(title)
+                pdf_document.close()
             except Exception as e:
                 print(f"Error processing file {file_path}: {e}")
 
 # Define the CSV file name
-csv_file_name = 'document_titles.csv'
+output_folder = './csv'
+os.makedirs(output_folder, exist_ok=True)
+csv_file_name = output_folder+'/'+'document_titles.csv'
 
 # Create a DataFrame from the list of document titles
 df = pd.DataFrame(document_titles, columns=['Document Title'])
