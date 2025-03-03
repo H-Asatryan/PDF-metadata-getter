@@ -19,8 +19,11 @@ for root, dirs, files in os.walk(subfolder_path):
             try:
                 # Open the PDF file
                 pdf_document = pymupdf.open(file_path)
+                # Activate one of the following 2 commands
                 # Extract the title from the metadata
-                title = pdf_document.metadata.get('title', 'Unknown Title')
+                # title = pdf_document.metadata.get('title', 'Unknown Title')
+                # Extract the title from the metadata and remove last 29 characters
+                title = pdf_document.metadata.get('title', 'Unknown Title')[:-29]
                 document_titles.append(title)
                 pdf_document.close()
             except Exception as e:
