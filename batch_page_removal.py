@@ -1,15 +1,10 @@
 # This file batch removes the last pages of all PDF files
-# with filename prefixes listed in "prefixes.csv".
-# The ne PDF files are saved to a different folder, named "processed_pdfs".
-# Note that 'pymupdf' package does not allow overwriting files!
+# of the subfolder "pdfs". The new PDF files are saved to
+# a different folder, named "processed_pdfs". Note that
+# 'pymupdf' package does not allow overwriting files!
 
 import os
-import pandas as pd
 import pymupdf
-
-# Read the prefixes from the CSV file
-prefixes_df = pd.read_csv('./csv/prefixes.csv', dtype=str)
-prefixes = prefixes_df['prefix'].tolist()
 
 # Define the path to the subfolder containing the original PDF files
 subfolder_path = 'pdfs'
@@ -36,13 +31,11 @@ def delete_last_page_and_save(pdf_path, output_folder):
 for root, dirs, files in os.walk(subfolder_path):
     for file in files:
         if file.endswith('.pdf'):
-            for prefix in prefixes:
-                if file.startswith(prefix):
-                    file_path = os.path.join(root, file)
-                    try:
-                        delete_last_page_and_save(file_path, output_folder_path)
-                        print(f'Deleted the last page of {file} and saved to {output_folder_path}')
-                    except Exception as e:
-                        print(f"Error processing file {file_path}: {e}")
+            file_path = os.path.join(root, file)
+            try:
+                delete_last_page_and_save(file_path, output_folder_path)
+                print(f'Deleted the last page of {file} and saved to {output_folder_path}')
+            except Exception as e:
+                print(f"Error processing file {file_path}: {e}")
 
 print('Batch processing completed.')
