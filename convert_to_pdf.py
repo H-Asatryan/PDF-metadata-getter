@@ -1,12 +1,13 @@
 """
 Convert an arbitrary document (XPS, EPUB, CBZ, etc.) to PDF
+The output file will be named 'output.pdf'
 --------------------------------------------------------------------------------
 License: GNU GPL V3
 (c) 2018 Jorj X. McKie
 
 Usage
 -----
-python convert.py input.epub
+python convert_to_pdf.py input.epub
 
 Description
 -----------
