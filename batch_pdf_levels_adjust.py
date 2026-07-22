@@ -25,18 +25,18 @@ CLI PARAMETERS
 USAGE EXAMPLES
 ---------------
 # Use defaults (black=20, white=230, auto JPEG quality)
-python adjust_pdfs.py
+python batch_pdf_levels_adjust.py
 
 # Custom black/white points
-python adjust_pdfs.py --black 15 --white 240
+python batch_pdf_levels_adjust.py --black 15 --white 240
 
 # Force a specific JPEG quality (lower = smaller files, more compression
 # artifacts). Useful if auto-detected quality still yields larger files
 # than the originals.
-python adjust_pdfs.py --black 20 --white 230 --jpeg-quality 60
+python batch_pdf_levels_adjust.py --black 20 --white 230 --jpeg-quality 60
 
 # Custom input/output folders
-python adjust_pdfs.py --input-dir scans --output-dir scans_adjusted
+python batch_pdf_levels_adjust.py --input-dir scans --output-dir scans_adjusted
 
 TIPS
 -----
